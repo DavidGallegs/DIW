@@ -1,0 +1,19 @@
+.btn { 
+    background:#1f2937; 
+    color:#fff; 
+    border:0; 
+    border-radius:8px;  
+}
+
+.sm{
+
+    padding: 10px 20px;
+}
+
+.md{
+    padding: 20px 40px;
+}
+
+.lg{
+    padding: 35px 70px;
+}

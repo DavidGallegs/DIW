@@ -1,0 +1,19 @@
+.card { 
+    display:inline-block; 
+    background:#fef3c7; 
+    border:1px solid #fbbf24; 
+    margin:8px; 
+}
+
+.a{
+    padding: 20px;
+}
+
+.b{
+    padding: 10px 30px;
+}
+
+.c{
+    padding: 10px 20px 5px;
+}
+
