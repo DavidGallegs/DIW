@@ -1,0 +1,22 @@
+.wrap { 
+    background:#f0fff4; 
+    border:1px solid #9ae6b4; 
+    min-height:120px; 
+    margin: 20vh 20vh;
+}
+
+@media (min-width: 600px) and (max-width: 1000px){
+
+    .wrap{
+
+        margin: 25vh 25vh;
+    }
+}
+
+@media (min-width: 1000px){
+
+    .wrap{
+
+        margin: 30vh 30vw;
+    }
+}
