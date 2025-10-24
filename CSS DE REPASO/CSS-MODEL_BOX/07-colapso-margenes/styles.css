@@ -1,0 +1,11 @@
+.p1 { 
+   margin-bottom:30px; 
+   background:#eef; 
+}
+
+.p2 {
+   margin-top:40px; 
+   background:#efe; 
+   display: flow-root;
+}
+
