@@ -1,0 +1,10 @@
+.tab { 
+    display:none; 
+    padding:16px; 
+    border:1px solid #e5e7eb; 
+    margin-top:10px; 
+}
+
+.tab:target {
+    display: block;
+}

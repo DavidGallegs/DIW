@@ -1,0 +1,5 @@
+.tag { padding:4px 8px; border:1px solid #d1d5db; border-radius:8px; margin:4px; display:inline-block; }
+
+.tag:not(.destacado) {
+    background-color: #f3f4f6;
+}

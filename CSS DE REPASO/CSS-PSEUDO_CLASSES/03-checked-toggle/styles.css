@@ -1,0 +1,7 @@
+.detalles {
+    display: none; 
+}
+
+#chk:checked ~ .detalles {
+    display: block;
+}

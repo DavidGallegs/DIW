@@ -1,0 +1,24 @@
+.card {
+   border: 1px solid #e5e7eb;
+   padding: 12px;
+   margin: 8px 0;
+   border-radius: 4px;
+}
+
+.card:has(img) {
+   border-color: #48e; 
+}
+
+
+.form {
+   border: 1px solid #eee;
+   padding: 12px;
+   margin: 8px 0;
+   border-radius: 4px;
+}
+
+
+.form:has(input:invalid) {
+   border-color: #f00;
+}
+
