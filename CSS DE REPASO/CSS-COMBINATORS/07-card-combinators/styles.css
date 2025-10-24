@@ -1,0 +1,13 @@
+.card a{
+
+   color: #48e;
+}
+
+.card > a {
+   color:chartreuse;
+}
+
+.card h3 ~ p{
+
+   color: grey;
+}

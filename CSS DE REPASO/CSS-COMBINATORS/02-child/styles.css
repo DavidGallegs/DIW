@@ -1,0 +1,8 @@
+/* Objetivo: solo los p que sean hijos directos de .container deben ponerse en verde */
+
+.container > p{
+
+    color: #98e;
+    font-weight: bold;
+}
+
