@@ -1,0 +1,268 @@
+/* --- GENERAL ---- */
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --brand: #22d3ee;
+  --accent: #34d399;
+  --warn: #f59e0b;
+  --border: #334155;
+  --focus: #60a5fa;
+}
+
+*{
+  box-sizing: border-box; 
+}
+
+html,body{
+  margin:0; 
+  padding:0; 
+  background:var(--bg); 
+  color:var(--text); 
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; 
+}
+
+img{
+  max-width:100%; 
+  height:auto; 
+  display:block; 
+}
+
+/* --- LAYOUT GLOBAL */
+.site-header, .site-footer{ 
+  padding: 1.2rem clamp(1rem, 3vw, 2rem); 
+}
+
+.site-header{ 
+  text-align:center; 
+}
+
+.subtitle{ 
+  color: var(--muted); 
+  margin-top:-.5rem; 
+}
+
+.container{ 
+  width:min(1100px, 90%); 
+  margin-inline:auto; 
+}
+
+/* --- CARDS GRID --- */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  column-gap: 10px;
+  row-gap: 0; 
+  margin-block: 24px;
+}
+
+.card{
+  background: var(--card);
+  padding: 16px;
+  border: 2px solid var(--border);
+  margin: 24px;
+  border-radius: 12px;
+}
+
+.card h3{ 
+  margin: .5rem 0; 
+}
+
+/* --- BORDES --- */
+.borders-demo{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:16px;
+  margin-block: 24px;
+}
+.box{
+  background: var(--card);
+  padding: 15px;
+  border-radius: 10px;
+  text-align:center;
+}
+
+/* - EJEMPLOS - */
+.box.basic{ 
+  border: 2px solid var(--border);
+}
+.box.sides{
+  border-top: 4px solid var(--border);
+  border-right: 4px dashed var(--border);
+  border-bottom: 4px dotted var(--border);
+  border-left: 4px double var(--border);
+}
+.box.radius{
+  border-radius: 24px 8px 24px 8px;
+}
+.box.image{
+  border: 8px solid transparent;
+  border-image: linear-gradient(180deg, #98e, var(--border)) 1;
+}
+
+/* --- MARGIN --- */
+.margins-demo{ 
+  margin-block: 24px; 
+}
+
+.m1{
+  margin: 15px 10px;
+}
+
+.m2{
+  margin: 20px 10px 15px 10px;
+}
+
+/*- Colapso de márgenes -*/
+.collapse-wrapper{
+  display: flow-root;
+  background: rgba(255,255,255,.03);
+  padding: 8px 12px;
+  border:1px dashed var(--border);
+  border-radius: 8px;
+  margin-block: 16px;
+}
+
+.colapso{ 
+  background: rgba(255,255,255,.02); 
+}
+
+.colapso.top{ 
+  margin-bottom: 20px; 
+}
+
+.colapso.bottom{
+  margin-top: 20px; 
+}
+
+/*- Márgenes lógicos -*/
+.logical{ 
+  writing-mode: horizontal-tb; 
+}
+
+.logical-item{
+  background: rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  border-radius: 10px;
+  margin-block: 24px;
+  margin-inline: 12px;
+}
+
+/* --- PADDING ---   */
+.padding-demo{
+  display:grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:16px; 
+  margin-block:24px;
+}
+
+.pad{ 
+  background: var(--card); 
+  border:1px solid var(--border); 
+  border-radius:10px; 
+}
+
+.pad.a{
+
+  padding-top: 4px;
+  padding-right: 5px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+
+}
+.pad.b{
+  padding: 4px 5px 4px;
+}
+
+.pad.c{
+  padding: 5px;
+}
+
+/* --- BOTONES ESTABLES ---*/
+.btn{
+  background: var(--brand);
+  color: #0b1324;
+  font-weight:600;
+  border: 2px solid transparent; /* estable */
+  border-radius: 999px;
+  cursor:pointer;
+}
+.btn:hover{ 
+  border-color: var(--brand); 
+  background: transparent; 
+  color: var(--text); 
+}
+
+.btn.sm{ 
+  padding: 4px 12px;
+}
+
+.btn.sm:hover{
+  border: 2px solid #48e;
+}
+
+.btn.md{
+  padding: 6px 18px;
+}
+
+.btn.md:hover{
+  border: 2px solid #98e;
+}
+
+.btn.lg{
+  padding: 8px ;
+}
+
+.btn.lg:hover{
+  border: 2px solid #94e;
+}
+
+/* --- ACCESESIBILIDAD FOCO --- */
+.btn:focus-visible, a:focus-visible, .card:focus-within{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* --- RESPONSIVE --- */
+/* - TABLET */
+@media (min-width: 750px) {
+
+  .pad.a{
+
+  padding-top: 8px;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+
+  }
+  .pad.b{
+    padding: 8px 10px 8px;
+  }
+
+  .pad.c{
+    padding: 10px;
+  }
+  
+}
+
+/* - ESCRITORIO */
+@media (min-width: 1000px) {
+
+  .pad.a{
+
+  padding-top: 16px;
+  padding-right: 20px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+
+  }
+  .pad.b{
+    padding: 16px 20px 16px;
+  }
+
+  .pad.c{
+    padding: 20px;
+  }
+  
+}
