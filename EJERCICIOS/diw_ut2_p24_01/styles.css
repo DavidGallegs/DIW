@@ -165,18 +165,18 @@ img{
 
 .pad.a{
 
-  padding-top: 4px;
-  padding-right: 5px;
-  padding-bottom: 4px;
-  padding-left: 5px;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
 
 }
 .pad.b{
-  padding: 4px 5px 4px;
+  padding: 8px 8px 8px;
 }
 
 .pad.c{
-  padding: 5px;
+  padding: 8px;
 }
 
 /* --- BOTONES ESTABLES ---*/
@@ -230,18 +230,18 @@ img{
 
   .pad.a{
 
-  padding-top: 8px;
-  padding-right: 10px;
-  padding-bottom: 8px;
-  padding-left: 10px;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
 
   }
   .pad.b{
-    padding: 8px 10px 8px;
+    padding: 16px 16px 16px;
   }
 
   .pad.c{
-    padding: 10px;
+    padding: 16px;
   }
   
 }
@@ -251,18 +251,18 @@ img{
 
   .pad.a{
 
-  padding-top: 16px;
-  padding-right: 20px;
-  padding-bottom: 16px;
-  padding-left: 20px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
 
   }
   .pad.b{
-    padding: 16px 20px 16px;
+    padding: 24px 24px 24px;
   }
 
   .pad.c{
-    padding: 20px;
+    padding: 24px;
   }
   
 }
