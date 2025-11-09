@@ -1,4 +1,4 @@
-/* --- GENERAL ---(128L) */
+/* ===== Variables, reset y utilidades ===== */
 :root{
   --bg:#0b1220;
   --panel:#0f172a;
@@ -9,105 +9,55 @@
   --border:#243043;
   --shadow: rgba(0,0,0,.35);
 }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+.container{ width:min(1100px, 90%); margin-inline:auto; }
 
-*{ 
-  box-sizing:border-box; 
-}
-
-html,body{ 
-  margin:0; 
-  padding:0; 
-  background:var(--bg); 
-  color:var(--text); 
-  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; 
-}
-
-a{ 
-  color:inherit; 
-  text-decoration:none; 
-}
-
-img{ 
-  max-width:100%; 
-  display:block; 
-}
-
-.container{ 
-  width:min(1100px, 90%); 
-  margin-inline:auto; 
-}
-
-/* --- HEADER Y NAV --- */
+/* ===== Header + Navbar ===== */
 .site-header{
   position: sticky; top:0; z-index:10;
   background: linear-gradient(0deg, rgba(255,255,255,.02), rgba(255,255,255,.04));
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
-  padding: 10px;
+  padding: .75rem 1rem;
   display:flex; align-items:center; justify-content:space-between;
 }
-
-.brand{ 
-  font-weight:800; 
-  letter-spacing:.2px; 
-  margin: 10px 10px 10px 15px;
-}
-
-.brand span{ 
-  color: var(--accent); 
-}
+.brand{ font-weight:800; letter-spacing:.2px; }
+.brand span{ color: var(--accent); }
 
 .navbar{
-  display:flex; 
-  align-items:center; 
-  justify-content:space-between;
-  margin: 10px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 1rem;
 }
+
 .nav-toggle{
-  display: none;
+  display:none;
   background:transparent; border:1px solid var(--border); color:var(--text);
   padding:.4rem .6rem; border-radius:8px;
-
-}
-
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
+  cursor:pointer;
 }
 
 .nav-list{
-  list-style:none; 
-  margin:0; 
-  padding:0;
-  display:flex; 
-  gap: 8px;
+  list-style:none; margin:0; padding:0;
+  display:flex; gap: 8px;
 }
 .nav-list a{
   display:block;
-  padding-block: 4px;
-  padding-inline: 15px;
+  padding:.5rem .9rem;
   border-radius:8px;
+  transition: background .2s ease;
 }
-
-.nav-list a:hover{
-
-  background-color: #0129;
+.nav-list a:hover,
+.nav-list a:focus-visible{
+  background: rgba(255,255,255,.08);
 }
-
-.nav-list a:focus{
-  opacity: .8;
-}
-
-/* .nav-list.open{} > ARREGLAR*/
+.nav-list.open{ display:flex; }
 
 /* ===== Dropdowns ===== */
 .dropdown{ position:relative; }
-.dropbtn::after{
-  /* TODO: flecha ▾ con ::after */
-  content:"";
-  margin-left:.25rem;
-}
+
 .dropdown-menu{
   position:absolute; left:0; top:calc(100% + 6px);
   min-width: 220px;
@@ -117,26 +67,81 @@ img{
   box-shadow: 0 10px 30px var(--shadow);
   opacity:0; visibility:hidden; transform: translateY(-6px);
   transition: all .18s ease;
-  /* TODO: padding interno de los items */
+  padding:.4rem 0;
+  z-index:99;
 }
 .dropdown:hover > .dropdown-menu,
 .dropdown:focus-within > .dropdown-menu{
   opacity:1; visibility:visible; transform: translateY(0);
 }
 .dropdown-menu li{ list-style:none; }
-.dropdown-menu a{ display:block; /* TODO: padding item */ }
-.dropdown-right{ position:relative; }
-.dropdown-right > .dropdown-menu{
-  left:100%; top:0; margin-left:8px;
+.dropdown-menu a{
+  display:block;
+  padding:.5rem 1rem;
+  border-radius:6px;
+}
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible{
+  background: rgba(255,255,255,.08);
+}
+
+/* ===== Submenú lateral (Categorías dentro de Productos) ===== */
+.dropdown-right {
+  position: relative;
+}
+.dropdown-right > .dropbtn::after {
+  margin-left: .25rem;
+}
+.dropdown-right > .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all .18s ease;
+  min-width: 180px;
+  padding: .4rem 0;
+  z-index: 100;
+}
+.dropdown-right:hover > .dropdown-menu,
+.dropdown-right:focus-within > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-right .dropdown-menu a {
+  padding: .5rem 1rem;
+  display: block;
+  border-radius: 6px;
+}
+.dropdown-right .dropdown-menu a:hover,
+.dropdown-right .dropdown-menu a:focus-visible {
+  background: rgba(255,255,255,.08);
 }
 
 /* ===== Responsive navbar ===== */
 @media (max-width: 768px){
   .nav-list{ 
-    /* TODO: convertir a columna, ocupar ancho completo y colapsar por defecto */
+    flex-direction:column;
+    width:100%;
+    display:none;
+    background: var(--panel);
+    border-top:1px solid var(--border);
+    padding:.5rem 0;
   }
-  .nav-list.open{ /* TODO: expandir en móvil */ }
+  .nav-list.open{ display:flex; }
   .nav-toggle{ display:inline-flex; }
+  
+  .dropbtn::after{
+  content:"▾";
+  margin-left:.25rem;
+}
 }
 @media (min-width: 769px){
   .nav-toggle{ display:none; }
@@ -151,26 +156,57 @@ img{
 .tall{ height: 50vh; }
 
 /* ===== Counters ===== */
-main{ counter-reset: seccion; } /* crear counter 'seccion' */
+main{ counter-reset: seccion; }
 h2{
-  /* TODO: incrementar contador y añadir número antes del título */
+  counter-increment: seccion;
+  position:relative;
+  padding-left:2rem;
 }
 h2::before{
-  /* TODO: content: counter(seccion) ". "; estilo destacado */
+  content: counter(seccion) ". ";
+  position:absolute;
+  left:0;
+  color: var(--accent);
+  font-weight:bold;
 }
 
 /* TOC y Steps con counters anidados */
-.toc{ counter-reset: item; }
+.toc{ counter-reset: item; padding-left:1rem; }
 .toc > li{
-  /* TODO: numeración 1,2,3... con ::marker o ::before */
+  counter-increment: item;
+  list-style:none;
+  position:relative;
+  padding-left:1.5rem;
 }
-.steps-list{ counter-reset: paso; }
+.toc > li::before{
+  content: counter(item) ". ";
+  position:absolute;
+  left:0;
+  color: var(--brand);
+}
+
+.steps-list{ counter-reset: paso; padding-left:1rem; }
 .steps-list > li{
   counter-increment: paso;
-  /* TODO: número dentro de un círculo usando ::before */
+  list-style:none;
+  margin-bottom:.5rem;
+  position:relative;
+  padding-left:2rem;
 }
 .steps-list > li::before{
-  /* TODO: content: counter(paso); */
+  content: counter(paso);
+  position:absolute;
+  left:0;
+  top:0;
+  background: var(--brand);
+  color: var(--panel);
+  font-weight:bold;
+  border-radius:50%;
+  width:1.4rem;
+  height:1.4rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 
 /* ===== Focus & accesibilidad ===== */
